@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- App -->
+<div id="app">
+  <h1>Blog</h1>
+  <div>
+    <div v-if="loading" class="loading">Loading...</div>
+    <article v-for="post of posts">
+      <div class="title">{{ post.title }}</div>
+    </article>
+  </div>
+</div>
+
+<!-- Include the library in the page -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/apollo-client-browser@1.9.0"></script>
+<script src="https://unpkg.com/vue-apollo@2.1.0-beta.19"></script>
+<script>
+console.clear()
+
+const apolloClient = new Apollo.lib.ApolloClient({
+  networkInterface: Apollo.lib.createNetworkInterface({
+  	// Edit: https://launchpad.graphql.com/nnnwvmq07
+    // uri: 'https://nnnwvmq07.lp.gql.zone/graphql',
+    uri: 'http://localhost:12580/graphql',
+    transportBatching: true,
+  }),
+  connectToDevTools: true,
+})
+
+const apolloProvider = new VueApollo.ApolloProvider({
+  defaultClient: apolloClient,
+})
+
+const POSTS_QUERY = Apollo.gql`
+{
+	posts: postsnoargs{
+    title
+  }
+}
+`
+
+// New VueJS instance
+const app = new Vue({
+  // CSS selector of the root DOM element
+  el: '#app',
+  data: {
+  	posts: [],
+    loading: 0,
+  },
+  // Apollo GraphQL
+  apolloProvider,
+  apollo: {
+    posts: {
+      query: POSTS_QUERY,
+      loadingKey: 'loading',
+    },
+  },
+})
+</script>
+
+</body>
+</html>
