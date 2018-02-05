@@ -8,18 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhouyuexie/learn-graphql.git"
   },
   "keywords": [
     "learn",
     "graphql"
   ],
-  "author": "zhouyuexie",
+  "author": "mafeifan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zhouyuexie/learn-graphql/issues"
+    "url": "https://github.com/mafeifan/learn-graphql"
   },
-  "homepage": "https://github.com/zhouyuexie/learn-graphql#readme",
+  "homepage": "https://github.com/mafeifan/learn-graphql#readme",
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.14.0",

@@ -10,9 +10,9 @@
   <h1>Blog</h1>
   <div>
     <div v-if="loading" class="loading">Loading...</div>
-    <article v-for="post of posts">
-      <div class="title">{{ post.title }}</div>
-    </article>
+    <ul v-for="post of posts">
+      <li class="title">{{ post.title }}</li>
+    </ul>
   </div>
 </div>
 
