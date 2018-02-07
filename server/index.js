@@ -12,7 +12,7 @@ let startTime = Date.now();
 // https://github.com/graphql/express-graphql
 app.use('/graphql', cors(), graphqlHTTP({
   schema: schema,
-  graphiql: false,
+  graphiql: true,
   pretty: true,
   formatError: error => ({
     message: error.message,

@@ -4,18 +4,23 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
+<style>
+  [v-cloak] {
+    display: none;
+  }
+</style>
 <body>
+
 <!-- App -->
 <div id="app">
   <h1>Blog</h1>
   <div>
     <div v-if="loading" class="loading">Loading...</div>
-    <ul v-for="post of posts">
+    <ul v-cloak v-for="post of posts">
       <li class="title">{{ post.title }}</li>
     </ul>
   </div>
 </div>
-
 <!-- Include the library in the page -->
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/apollo-client-browser@1.9.0"></script>
@@ -23,10 +28,10 @@
 <script>
 console.clear()
 
+// https://www.apollographql.com/docs/react/basics/setup.html#ApolloClient
 const apolloClient = new Apollo.lib.ApolloClient({
   networkInterface: Apollo.lib.createNetworkInterface({
-  	// Edit: https://launchpad.graphql.com/nnnwvmq07
-    // uri: 'https://nnnwvmq07.lp.gql.zone/graphql',
+    // GraphQL服务器的URL
     uri: 'http://localhost:12580/graphql',
     transportBatching: true,
   }),
