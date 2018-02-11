@@ -2,22 +2,18 @@ const UsersList = [
   {
     id: 1,
     name: 'Arunoda Susiripala',
-    twitterHandle: '@arunoda'
   },
   {
     id: 2,
     name: 'Pahan Sarathchandra',
-    twitterHandle: '@pahans'
   },
   {
     id: 3,
     name: 'Kasun Indi',
-    twitterHandle: '@indi'
   },
   {
-    id: 3,
+    id: 4,
     name: 'Kuma Silva',
-    twitterHandle: '@silva'
   }
 ];
 
