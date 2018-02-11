@@ -22,13 +22,13 @@ const PostsList = [
   },
   {
     id: 4,
-    uid: 2,
+    uid: 3,
     title: 'Meteor',
     category: 'product',
     content: 'Everybody hates errors -- whether it\'s in a Meteor app or not.'},
   {
     id: 5,
-    uid: 3,
+    uid: 4,
     title: 'EventLoop',
     category: 'product',
     content: 'You might have seen the EventLoop Utilization chart in our Dashboard. '

@@ -12,15 +12,15 @@ const schema = buildSchema(`
   }
   
   type Query {
-    hello(message: String!): String,
+    hello(name: String!): String,
     getPost(id: Int): [Post]
   }
 `);
 
 // root 提供所有 API 入口端点相应的解析器函数
 const root = {
-  hello: ({message}) => {
-    return `Hello ${message}!`;
+  hello: ({name}) => {
+    return `Hello ${name}!`;
   },
   getPost: ({id}) => {
     return id ? [PostList.find(item => item.id === id)] : PostList;

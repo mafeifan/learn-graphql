@@ -14,6 +14,10 @@ const UsersList = [
   {
     id: 4,
     name: 'Kuma Silva',
+  },
+  {
+    id: 5,
+    name: 'James King',
   }
 ];
 
