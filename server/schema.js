@@ -19,7 +19,7 @@ const Post = new GraphQLObjectType({
   description: '一篇文章',
   fields:()=>({
     id:{
-      type: new GraphQLNonNull(GraphQLString)
+      type: new GraphQLNonNull(GraphQLString),
     },
     title:{
       type: new GraphQLNonNull(GraphQLString)

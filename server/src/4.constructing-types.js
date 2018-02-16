@@ -11,7 +11,7 @@ const {
   GraphQLNonNull
 } = require('graphql');
 
-const PostsList = require('../data/posts');
+const PostsList = require('./data/posts');
 
 // 不使用 GraphQL Schema Language，使用 GraphQLSchema 构造函数创建schema
 

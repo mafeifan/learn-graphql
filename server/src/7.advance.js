@@ -13,7 +13,7 @@ const {
   GraphQLNonNull
 } = require('graphql');
 
-const UsersList = require('../data/usersWithDate');
+const UsersList = require('./data/usersWithDate');
 
 const DateType = new GraphQLScalarType({
   name: 'Date',
@@ -32,12 +32,11 @@ const DateType = new GraphQLScalarType({
     }
     return null;
   },
-})
+});
 
 
 // 自定义类型如何传参
 // https://segmentfault.com/a/1190000012600641#articleHeader7
-
 
 const User = new GraphQLObjectType({
   name: 'User',
@@ -60,9 +59,9 @@ const User = new GraphQLObjectType({
     create_at: {
       type: DateType,
       description: '创建日期',
-      resolve: (source, args)=>{
-        return '11';
-      }
+      // resolve: (source, args)=>{
+      //   return '11';
+      // }
     },
   })
 });

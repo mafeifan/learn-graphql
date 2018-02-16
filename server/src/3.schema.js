@@ -2,7 +2,7 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const { buildSchema } = require('graphql');
 
-const PostList = require('../data/posts');
+const PostList = require('./data/posts');
 
 // 使用 GraphQL Schema Language 创建一个 schema
 const schema = buildSchema(`
