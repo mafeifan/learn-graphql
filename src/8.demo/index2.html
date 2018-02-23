@@ -26,7 +26,9 @@
 <script src="https://unpkg.com/apollo-client-browser@1.9.0"></script>
 <script src="https://unpkg.com/vue-apollo@2.1.0-beta.19"></script>
 <script>
-console.clear()
+console.clear();
+
+// 主要是和客户端view/state结合，封装了常用功能。譬如，预取/批量/缓存等。
 
 // https://www.apollographql.com/docs/react/basics/setup.html#ApolloClient
 const apolloClient = new Apollo.lib.ApolloClient({
@@ -36,11 +38,11 @@ const apolloClient = new Apollo.lib.ApolloClient({
     transportBatching: true,
   }),
   connectToDevTools: true,
-})
+});
 
 const apolloProvider = new VueApollo.ApolloProvider({
   defaultClient: apolloClient,
-})
+});
 
 const POSTS_QUERY = Apollo.gql`
 {
@@ -48,7 +50,7 @@ const POSTS_QUERY = Apollo.gql`
     title
   }
 }
-`
+`;
 
 // New VueJS instance
 const app = new Vue({

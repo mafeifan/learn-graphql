@@ -7,13 +7,17 @@ const PostList = require('./data/posts');
 
 // 使用 GraphQL Schema Language 创建一个 schema
 const schema = buildSchema(`
+  # 一篇文章
   type Post {
     id: Int,
-    title: String,
+    title: String!,
+    category: String,
+    content: String
   }
   
   type Query {
     hello(message: String!): String,
+    # 获取文章
     getPost(id: Int): [Post]
   }
 `);
@@ -29,6 +33,7 @@ const root = {
 };
 
 const app = express();
+
 app.use('/graphql', cors(), graphqlHTTP({
   schema: schema,
   rootValue: root,
@@ -73,6 +78,7 @@ fragment PostFields on Post {
 }
 
 3. 参数
+# 默认变量，覆盖参数变量
 
 fragment PostFields on Post {
   id, title
@@ -90,5 +96,28 @@ query($id:Int){
 {"id": 2}
 
 4. 指令
+内置两个核心指令，@skip 和 @include
 
+query($noContent: Boolean = true){
+  posts1: getPost(id: 1) {
+    title
+    content @skip(if: $noContent)
+    id
+  }
+}
+===========================
+fragment postFields on Post {
+  id, title, category
+}
+
+
+query($noContent: Boolean = true){
+  posts1: getPost(id: 1) {
+    ...postFields @skip(if: $noContent)
+  }
+}
+
+{
+  "noContent": false
+}
 */

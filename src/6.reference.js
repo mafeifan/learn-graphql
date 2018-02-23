@@ -36,20 +36,6 @@ const Post = new GraphQLObjectType({
   })
 });
 
-/**
- * 关联查询
- *
- {
-  users(id: 1) {
-    id,
-    name,
-    post {
-      id,
-      title
-    }
-  }
-}
- */
 
 const User = new GraphQLObjectType({
   name: 'User',
@@ -124,3 +110,17 @@ app.use('/graphql', graphqlHTTP({
   }),
 })).listen(4000);
 console.log('Running a GraphQL API server at localhost:4000/graphql');
+/**
+ * 关联查询
+ *
+ {
+  users(id: 1) {
+    id,
+    name,
+    post {
+      id,
+      title
+    }
+  }
+}
+ */
