@@ -12,13 +12,13 @@ const schema = buildSchema(`
     id: Int,
     title: String!,
     category: String,
-    content: String
+    content: String,
   }
   
   type Query {
     hello(message: String!): String,
     # 获取文章
-    getPost(id: Int): [Post]
+    getPost(id: Int): [Post],
   }
 `);
 

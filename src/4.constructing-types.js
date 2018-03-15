@@ -21,7 +21,7 @@ const Post = new GraphQLObjectType({
   fields:()=>({
     id:{
       type: new GraphQLNonNull(GraphQLString),
-      description: '一篇文章的的主键ID'
+      description: '一篇文章的的ID'
     },
     title:{
       type: new GraphQLNonNull(GraphQLString),

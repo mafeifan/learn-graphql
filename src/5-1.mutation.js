@@ -1,14 +1,6 @@
 const express = require('express');
-const app = express();
 const graphqlHTTP = require('express-graphql');
 const { buildSchema } = require('graphql');
-const { connect } = require('./helper');
-const MessageModel = require('./models/Message');
-
-connect()
-  .on('error', console.error.bind(console, 'connection error:'))
-  .on('disconnected', () => console.log('MongoDB disconnected'))
-  .once('open', listen);
 
 // 使用 GraphQL schema language 构建 schema
 const schema = buildSchema(`
@@ -56,53 +48,27 @@ const root = {
     const id = require('crypto').randomBytes(10).toString('hex');
 
     fakeDatabase[id] = input;
-
-    // let payload = {
-    //   id: 1,
-    //   content: 'hello',
-    //   author: 'jack'
-    // }
-    const model = new MessageModel(input)
-    model.save((err, message) => {
-      if (err) {
-        throw new Error(err);
-      }
-      return message;
-    })
-
-    // return new Message(id, input);
+    return new Message(id, input);
   },
   updateMessage: function ({id, input}) {
-    MessageModel.findByIdAndUpdate(id, input, (err, message) => {
-      console.log(message)
-    })
-
-    /*
     if (!fakeDatabase[id]) {
       throw new Error('no message exists with id ' + id);
     }
     // This replaces all old data, but some apps might want partial update.
     fakeDatabase[id] = input;
     return new Message(id, input);
-    */
   },
 };
 
-
-
-function listen() {
-  app.use('/graphql', graphqlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true,
-  }));
-
-  app.listen(4000);
+const app = express();
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));
+app.listen(4000, () => {
   console.log('Running a GraphQL API server at localhost:4000/graphql');
-}
-
-
-
+});
 
 /*
 mutation {
