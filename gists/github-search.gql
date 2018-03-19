@@ -1,0 +1,43 @@
+// https://developer.github.com/v4/explorer/
+
+{
+  search(query: "graphql", type: REPOSITORY, first: 10) {
+    codeCount
+    edges {
+      node {
+        ... on Repository {
+          nameWithOwner
+          description
+          updatedAt
+          stargazers {
+            totalCount
+          }
+          forks {
+            totalCount
+          }
+          issues(states: OPEN, first: 3) {
+            edges {
+              node {
+                title
+              }
+            }
+          }
+        }
+      }
+      cursor
+    }
+    pageInfo {
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+  rateLimit {
+    limit
+    cost
+    remaining
+    resetAt
+  }
+}
+
