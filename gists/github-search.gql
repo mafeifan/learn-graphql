@@ -41,3 +41,29 @@
   }
 }
 
+
+
+
+{
+  search(first: 10, query: "graphql", type: REPOSITORY) {
+    codeCount
+    issueCount
+    nodes {
+      # http://spec.graphql.cn/#sec-Inline-Fragments-
+      ... on Repository {
+        nameWithOwner
+        description
+        issues(first: 3) {
+          nodes {
+            author {
+              avatarUrl
+              login
+              resourcePath
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}
