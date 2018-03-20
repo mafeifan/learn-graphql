@@ -33,6 +33,10 @@ const Post = new GraphQLObjectType({
     content:{
       type: GraphQLString
     },
+    oldField: {
+      type: GraphQLString,
+      deprecationReason: 'some reason...'
+    }
   })
 });
 

@@ -2,7 +2,7 @@ const UsersList = [
   {
     id: 1,
     name: 'Arunoda Susiripala',
-    create_at: '2017-04-17 20:31:40'
+    create_at: 1492432300000
   },
   {
     id: 2,

@@ -10,9 +10,14 @@ const schema = buildSchema(`
   # 一篇文章
   type Post {
     id: Int,
+    # 标题
     title: String!,
+    # 分类
     category: String,
+    # 内容
     content: String,
+    # the description of the old field
+    oldField: String @deprecated(reason: "the reason is...")
   }
   
   type Query {
@@ -105,7 +110,10 @@ query($noContent: Boolean = true){
     id
   }
 }
+
+
 ===========================
+
 fragment postFields on Post {
   id, title, category
 }

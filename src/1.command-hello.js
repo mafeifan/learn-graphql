@@ -17,7 +17,7 @@ const root = { hello: () => 'Hello world!' };
 graphql(
   schema,
   '{ hello }',
-  root
+  root // root 提供所有 API 入口端点相应的解析器函数
 ).then((response) => {
   console.log(response);
 });
