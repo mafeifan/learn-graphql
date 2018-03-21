@@ -18,14 +18,16 @@ const UsersList = require('./data/usersWithDate');
 const DateType = new GraphQLScalarType({
   name: 'Date',
   description: 'Date custom scalar type',
-  // value from the client, for input
-  parseValue(value) {
-    return new Date(value);
-  },
+  // https://github.com/graphql/graphql-js/issues/500
   // value sent to the client, for response
   serialize(value) {
-    return value;
+    return new Date(value);
   },
+  // value from the client, for input
+  parseValue(value) {
+    return new Date().getTime();
+  },
+  // gets invoked to parse client input that was passed inline in the query.
   parseLiteral(ast) {
     if (ast.kind === Kind.INT) {
       return parseInt(ast.value, 10); // ast value is always in string format
@@ -37,6 +39,8 @@ const DateType = new GraphQLScalarType({
 
 // 自定义类型如何传参
 // https://segmentfault.com/a/1190000012600641#articleHeader7
+
+// TODO Interface
 
 const User = new GraphQLObjectType({
   name: 'User',
@@ -59,9 +63,9 @@ const User = new GraphQLObjectType({
     create_at: {
       type: DateType,
       description: '创建日期',
-      // resolve: (source, args)=>{
-      //   return '11';
-      // }
+      resolve: (source, args)=>{
+        return '11';
+      }
     },
   })
 });

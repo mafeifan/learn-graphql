@@ -110,6 +110,8 @@ app.use('/graphql', graphqlHTTP({
   }),
 })).listen(4000);
 console.log('Running a GraphQL API server at localhost:4000/graphql');
+
+
 /**
  * 关联查询
  *

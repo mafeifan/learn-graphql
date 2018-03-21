@@ -12,7 +12,7 @@ connect()
 
 // 使用 GraphQL schema language 构建 schema
 // http://graphql.cn/learn/schema/#input-types
-// 传递整个对象作为新建对象, 在变更（mutation）中特别有用
+// Input 类型传递整个对象作为新建对象, 在变更（mutation）中特别有用
 const schema = buildSchema(`
   input MessageInput {
     content: String
@@ -85,10 +85,11 @@ mutation {
 
 
 mutation {
-  updateMessage(id: "51511cd274f244a9ca25",
-  input: {content: "bar", author: "jack"}) {
-    id
-  }
+  updateMessage(
+    id: "5ab12a9a4d836e040c9d57a0",
+    input: {content: "bar", author: "jack"}) {
+     id
+    }
 }
 
 * */
