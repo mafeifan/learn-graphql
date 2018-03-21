@@ -87,7 +87,7 @@ const Query = new GraphQLObjectType({
       },
       // 根据参数的返回逻辑
       resolve: (source, {id}, requestObj) => {
-        console.log(source)
+        // console.log(source)
         return [
           UsersList.find(item => item.id === id)
         ]
@@ -114,7 +114,8 @@ console.log('Running a GraphQL API server at localhost:4000/graphql');
 
 /**
  * 关联查询
- *
+
+
  {
   users(id: 1) {
     id,

@@ -61,7 +61,7 @@ const User = new GraphQLObjectType({
       description: '用户名',
     },
     create_at: {
-      type: DateType,
+      type: GraphQLString,
       description: '创建日期',
       resolve: (source, args)=>{
         return '11';
