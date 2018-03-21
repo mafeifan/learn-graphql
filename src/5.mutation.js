@@ -74,13 +74,6 @@ mutation {
   }
 }
 
-mutation {
-  updateMessage(
-    id: "5ab12a9a4d836e040c9d57a0",
-    input: {content: "bar", author: "jack"}) {
-     id
-    }
-}
 
 {
   getMessage(id: "51511cd274f244a9ca25") {
@@ -88,6 +81,15 @@ mutation {
     content
     author
   }
+}
+
+
+mutation {
+  updateMessage(
+    id: "5ab12a9a4d836e040c9d57a0",
+    input: {content: "bar", author: "jack"}) {
+     id
+    }
 }
 
 * */
