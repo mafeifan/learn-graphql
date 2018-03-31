@@ -13,19 +13,18 @@ git clone https://github.com/mafeifan/learn-graphql
 2. 安装依赖:
 
 ```shell
-cd server 
 npm install
 ```
 
-3. 运行:
+3. 运行各个例子:
 
 ```shell
-npm start
+npm src/1.command-hello.js
+...
+npm src/2.express-graphql.js
 ```
 
-打开浏览器输入`http://localhost:12580/graphql`
-
-4. 双击client中的 apollo-client-browser-demo.html
+打开浏览器输入`http://localhost:3000/graphql`
 
 ## 资源
 
