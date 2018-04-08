@@ -28,7 +28,7 @@ graphiql主要分为四部分, 如图：
 * 5.mutation.js
 使用mutation类型更新删除记录。注意这个例子为了真实，不像前面的假数据，数据是存在mongoDB中。你本地需要运行mongoDB。
 
-6.reference.js
+* 6.reference.js
 运行此文件，模拟关联查询
 ```
  {
@@ -43,10 +43,10 @@ graphiql主要分为四部分, 如图：
 }
 ```
 
-7.advance.js
+* 7.advance.js
 高级部分，简单介绍了如何自定义类型及自定义类型如何传参
 
-8. page.md
+* 8.page.md
 介绍如何使用GraphQL进行分页，分页本质是定义一个Edges 类型，它包含 node 和 cursor 字段。其中 Node 用来保存查询列表内容， Cursor 用来记录分页信息。
 
 ## 开始
